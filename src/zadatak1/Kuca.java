@@ -3,10 +3,10 @@ package zadatak1;
 public class Kuca extends Nekretnina {
     private double povrsinaOkucnice;
 
-    public Kuca() {
-    }
-
     public Kuca(double povrsinaOkucnice) {
+        if (povrsinaOkucnice < 0) {
+            throw new IllegalArgumentException(GRESKA + GRESKA_POVRSINA_OKUCNICE);
+        }
         this.povrsinaOkucnice = povrsinaOkucnice;
     }
 
@@ -17,14 +17,7 @@ public class Kuca extends Nekretnina {
 
     @Override
     public String toString() {
-        return "Tip nekretnine: kuca. " + "\n" + "Adresa: " + getAdresa() + ",\n" + "Zona: " + getZona() + ",\n" + "Kvadratura: " + getKvadratura() + ",\n" + "Vlasnik: " + getVlasnik() + ",\n" + "Povrsina okucnice: " + povrsinaOkucnice + ",\n" + "Ukupna cena nekretnine: " + cena() + ".\n";
-    }
-
-    public double getPovrsinaOkucnice() {
-        return povrsinaOkucnice;
-    }
-
-    public void setPovrsinaOkucnice(double povrsinaOkucnice) {
-        this.povrsinaOkucnice = povrsinaOkucnice;
+        StringBuilder str = new StringBuilder();
+        return (str.append(" Tip nekretnine: kuca.\n Adresa: ").append(getAdresa()).append(",\n Zona: ").append(getZona()).append(",\n Kvadratura: ").append(getKvadratura()).append(",\n Vlasnik: ").append(getVlasnik()).append(",\n Povrsina okucnice: ").append(povrsinaOkucnice).append(",\n Ukupna cena nekretnine: ").append(cena()).append(".\n")).toString();
     }
 }

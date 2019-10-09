@@ -6,6 +6,18 @@ public abstract class Nekretnina {
     private double kvadratura;
     private Vlasnik vlasnik;
 
+    public static final String GRESKA = "Neispravan unos!";
+    public static final String GRESKA_POVRSINA_TERASE_ILI_PODRUMA = "Povrsine terase i/ili podruma moraju biti pozitivne vrednosti";
+    public static final String GRESKA_POVRSINA_OKUCNICE = "Povrsina okucnice mora biti pozitivna vrednost";
+    public static final String GRESKA_ADRESE = "Morate uneti adresu!";
+    public static final String GRESKA_ZONE = "Zona mora biti u intervalu od 1 do 4";
+    public static final String GRESKA_KVADRATURE = "Kvadratura nekretnine mora biti pozitivna vrednost!";
+    public static final String GRESKA_IME = "Ime vlasnika ne moze sadrzati brojeve i/ili specijalne karaktere!";
+    public static final String GRESKA_PREZIME = "Prezime vlasnika ne moze sadrzati brojeve i/ili specijalne karaktere!";
+    public static final String GRESKA_JMBG = "JMBG mora imati 13 cifara i moze sadrzati samo brojeve";
+    public static final String GRESKA_LICNA_KARTA = "Broj licne karte mora imati 9 cifara i moze sadrzati samo brojeve";
+
+
     public Nekretnina() {
     }
 
@@ -34,7 +46,7 @@ public abstract class Nekretnina {
                 cenaZaZonu = 500;
                 return cenaZaZonu;
             default:
-                return  1;
+                return 1;
         }
     }
 
@@ -43,7 +55,11 @@ public abstract class Nekretnina {
     }
 
     public void setAdresa(String adresa) {
-        this.adresa = adresa;
+        if (adresa == null || adresa == "") {
+            throw new IllegalArgumentException(GRESKA + GRESKA_ADRESE);
+        } else {
+            this.adresa = adresa;
+        }
     }
 
     public int getZona() {
@@ -51,7 +67,11 @@ public abstract class Nekretnina {
     }
 
     public void setZona(int zona) {
-        this.zona = zona;
+        if (zona > 0 && zona <= 4) {
+            this.zona = zona;
+        } else {
+            throw new IllegalArgumentException(GRESKA + GRESKA_ZONE);
+        }
     }
 
     public double getKvadratura() {
@@ -59,6 +79,9 @@ public abstract class Nekretnina {
     }
 
     public void setKvadratura(double kvadratura) {
+        if (kvadratura <= 0) {
+            throw new IllegalArgumentException(GRESKA + GRESKA_KVADRATURE);
+        }
         this.kvadratura = kvadratura;
     }
 

@@ -4,10 +4,10 @@ public class Stan extends Nekretnina {
     private double povrsinaPodruma;
     private double povrsinaTerase;
 
-    public Stan() {
-    }
-
     public Stan(double povrsinaPodruma, double povrsinaTerase) {
+        if (povrsinaPodruma < 0 || povrsinaTerase < 0) {
+            throw new IllegalArgumentException(GRESKA + GRESKA_POVRSINA_TERASE_ILI_PODRUMA);
+        }
         this.povrsinaPodruma = povrsinaPodruma;
         this.povrsinaTerase = povrsinaTerase;
     }
@@ -19,22 +19,7 @@ public class Stan extends Nekretnina {
 
     @Override
     public String toString() {
-        return "Tip nekretnine: stan. " + "\n" + "Adresa: " + getAdresa() + ",\n" + "Zona: " + getZona() + ",\n" + "Kvadratura: " + getKvadratura() + ",\n" + "Vlasnik: " + getVlasnik() + ",\n" + "Povrsina podruma: " + povrsinaPodruma + ",\n" + "Povrsina terase: " + povrsinaTerase + ",\n" + "Ukupna cena nekretnine: " + cena() + ".\n";
-    }
-
-    public double getPovrsinaPodruma() {
-        return povrsinaPodruma;
-    }
-
-    public void setPovrsinaPodruma(double povrsinaPodruma) {
-        this.povrsinaPodruma = povrsinaPodruma;
-    }
-
-    public double getPovrsinaTerase() {
-        return povrsinaTerase;
-    }
-
-    public void setPovrsinaTerase(double povrsinaTerase) {
-        this.povrsinaTerase = povrsinaTerase;
+        StringBuilder str = new StringBuilder();
+        return (str.append(" Tip nekretnine: stan.\n Adresa: ").append(getAdresa()).append(",\n Zona: ").append(getZona()).append(",\n Kvadratura: ").append(getKvadratura()).append(",\n Vlasnik: ").append(getVlasnik()).append(",\n Povrsina podruma: ").append(povrsinaPodruma).append(",\n Povrsina terase: ").append(povrsinaTerase).append(",\n Ukupna cena nekretnine: ").append(cena()).append(".\n")).toString();
     }
 }
