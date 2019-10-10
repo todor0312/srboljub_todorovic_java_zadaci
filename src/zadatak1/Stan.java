@@ -19,7 +19,6 @@ public class Stan extends Nekretnina {
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder();
-        return (str.append(" Tip nekretnine: stan.\n Adresa: ").append(getAdresa()).append(",\n Zona: ").append(getZona()).append(",\n Kvadratura: ").append(getKvadratura()).append(",\n Vlasnik: ").append(getVlasnik()).append(",\n Povrsina podruma: ").append(povrsinaPodruma).append(",\n Povrsina terase: ").append(povrsinaTerase).append(",\n Ukupna cena nekretnine: ").append(cena()).append(".\n")).toString();
+        return (new StringBuilder(" Tip nekretnine: stan.\n Adresa: ").append(getAdresa()).append(",\n Zona: ").append(getZona()).append(",\n Kvadratura: ").append(getKvadratura()).append(" m\u00B2").append(",\n Vlasnik: ").append(getVlasnik()).append(",\n Povrsina podruma: ").append(povrsinaPodruma).append(" m\u00B2").append(",\n Povrsina terase: ").append(povrsinaTerase).append(" m\u00B2").append(",\n Ukupna cena nekretnine: ").append(cena()).append(" €").append(".\n")).toString();
     }
 }

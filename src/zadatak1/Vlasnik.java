@@ -18,11 +18,11 @@ public class Vlasnik {
 
     @Override
     public String toString() {
-        return ime + " " + prezime + ", jmbg: " + jmbg + ", br. licne karte: " + brojlicneKarte;
+        return new StringBuilder(ime).append(" ").append(prezime).append(", jmbg: ").append(jmbg).append(", br. licne karte: ").append(brojlicneKarte).toString();
     }
 
     public void setIme(String ime) {
-        if (ime.matches(".*\\d.*") || ime.matches(".*\\W.*")) {
+        if (ime.matches(".*\\d.*") || ime.matches(".*\\W.*") || ime.matches(".*_.*")) {
             throw new IllegalArgumentException(Nekretnina.GRESKA + Nekretnina.GRESKA_IME);
         } else {
             this.ime = ime;
@@ -30,12 +30,12 @@ public class Vlasnik {
     }
 
     public void setPrezime(String prezime) {
-        if (prezime.matches(".*\\d.*") || prezime.matches(".*\\W.*")) {
-            throw new IllegalArgumentException(Nekretnina.GRESKA + Nekretnina.GRESKA_PREZIME);
-        } else {
+        if (!prezime.matches(".*\\d.*") && !prezime.matches(".*[`,~,!,@,#,$,%,^,&,*,(,),_,+,=,<,>,?,;,\",:].*")) {
             this.prezime = prezime;
+        }else
+            throw new IllegalArgumentException(Nekretnina.GRESKA + Nekretnina.GRESKA_PREZIME);
         }
-    }
+
 
     public void setJmbg(String jmbg) {
         if (jmbg.length() != 13 || jmbg.matches(".*\\D.*")) {

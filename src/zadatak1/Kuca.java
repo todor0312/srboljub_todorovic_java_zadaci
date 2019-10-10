@@ -17,7 +17,6 @@ public class Kuca extends Nekretnina {
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder();
-        return (str.append(" Tip nekretnine: kuca.\n Adresa: ").append(getAdresa()).append(",\n Zona: ").append(getZona()).append(",\n Kvadratura: ").append(getKvadratura()).append(",\n Vlasnik: ").append(getVlasnik()).append(",\n Povrsina okucnice: ").append(povrsinaOkucnice).append(",\n Ukupna cena nekretnine: ").append(cena()).append(".\n")).toString();
+        return new StringBuilder(" Tip nekretnine: kuca.\n Adresa: ").append(getAdresa()).append(",\n Zona: ").append(getZona()).append(",\n Kvadratura: ").append(getKvadratura()).append(" m\u00B2").append(",\n Vlasnik: ").append(getVlasnik()).append(",\n Povrsina okucnice: ").append(povrsinaOkucnice).append(" m\u00B2").append(",\n Ukupna cena nekretnine: ").append(cena()).append(" €").append(".\n").toString();
     }
 }

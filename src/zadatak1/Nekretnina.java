@@ -13,7 +13,7 @@ public abstract class Nekretnina {
     public static final String GRESKA_ZONE = "Zona mora biti u intervalu od 1 do 4";
     public static final String GRESKA_KVADRATURE = "Kvadratura nekretnine mora biti pozitivna vrednost!";
     public static final String GRESKA_IME = "Ime vlasnika ne moze sadrzati brojeve i/ili specijalne karaktere!";
-    public static final String GRESKA_PREZIME = "Prezime vlasnika ne moze sadrzati brojeve i/ili specijalne karaktere!";
+    public static final String GRESKA_PREZIME = "Prezime vlasnika ne moze sadrzati brojeve i/ili specijalne karaktere osim karaktera ' i -";
     public static final String GRESKA_JMBG = "JMBG mora imati 13 cifara i moze sadrzati samo brojeve";
     public static final String GRESKA_LICNA_KARTA = "Broj licne karte mora imati 9 cifara i moze sadrzati samo brojeve";
 
